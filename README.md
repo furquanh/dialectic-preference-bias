@@ -61,3 +61,10 @@ python bias_analysis_scripts/compare_models.py \
 Our research reveals varying degrees of dialectic preference bias across the evaluated LLMs. The DGI metrics and sentiment shift patterns provide quantitative evidence of this bias, showing that these models do not treat different dialects equally when performing sentiment analysis tasks.
 
 These findings highlight the importance of continued research and improvement in making language models more equitable across different linguistic varieties and dialects.
+
+### Notes
+- For example, what words specifically cause higher bad sentiment in AAE?
+- Analysis of what tweets fall to neutral and negative when converted to AAE ( and if the reverse also happens when translated to AAE).
+- A good quantitative and qualitative analysis.
+- Topic modelling on the tweets and then analyzing each topic/cluster.
+- If possible, write a social impact analysis highlighting the impact on society (one crisp paragraph).
