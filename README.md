@@ -63,8 +63,12 @@ Our research reveals varying degrees of dialectic preference bias across the eva
 These findings highlight the importance of continued research and improvement in making language models more equitable across different linguistic varieties and dialects.
 
 ### Notes
-- For example, what words specifically cause higher bad sentiment in AAE?
-- Analysis of what tweets fall to neutral and negative when converted to AAE ( and if the reverse also happens when translated to AAE).
-- A good quantitative and qualitative analysis.
-- Topic modelling on the tweets and then analyzing each topic/cluster.
-- If possible, write a social impact analysis highlighting the impact on society (one crisp paragraph).
+- First is to finalize dataset.
+- For the whole dataset, reproduce the AAAI paper output.
+- Try performing these experiments:
+  - For example, what words specifically cause higher bad sentiment in AAE?
+  - Analysis of what tweets fall to neutral and negative when converted to AAE ( and if the reverse also happens when translated to AAE).
+  - A good quantitative and qualitative analysis.
+  - Topic modelling on the tweets and then analyzing each topic/cluster.
+  - If possible, write a social impact analysis highlighting the impact on society (one crisp paragraph).
+- Looking at other paper that are close to our benchmark idea.
