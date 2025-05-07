@@ -20,13 +20,13 @@ Our analysis uses a comparative approach across different language models:
 
 The DGI metric quantifies consistency in sentiment classification across dialects. Higher values indicate less bias.
 
-'Running `bias_analysis_scripts/compare_models.py will populates results here'
+'Running `bias_analysis_scripts/compare_models.py` will populates results here'
 
 ### Sentiment Shift Patterns
 
 This table shows the percentage of samples where sentiment changed between dialects and the direction of bias.
 
-'Running `bias_analysis_scripts/compare_models.py will populates shifts results here'
+'Running `bias_analysis_scripts/compare_models.py` will populates shifts results here'
 
 * **Positive Bias**: Higher values indicate a tendency to assign more positive sentiment to SAE compared to AAE
 * **Negative Bias**: Higher values indicate a tendency to assign more negative sentiment to SAE compared to AAE
