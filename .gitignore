@@ -1,2 +1,6 @@
 # virtual environments
 /dialectic
+
+.ipynb_checkpoints
+# pycache
+__pycache__/
