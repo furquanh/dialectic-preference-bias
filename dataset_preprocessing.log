@@ -1,0 +1,36 @@
+2025-05-09 14:32:45,184 - __main__ - INFO - Loading dataset from source-dataset/trial.csv
+2025-05-09 14:32:45,185 - __main__ - INFO - Loaded 20 records
+2025-05-09 14:32:45,185 - __main__ - INFO - Removing extra quotation marks
+2025-05-09 14:32:45,186 - __main__ - INFO - Saving preprocessed dataset to source-dataset/cleaned_aae_dataset_no_quotes.csv
+2025-05-09 14:32:45,186 - __main__ - INFO - Successfully saved 20 records
+2025-05-09 14:32:45,186 - __main__ - INFO - Preprocessing completed successfully
+2025-05-09 16:47:57,520 - __main__ - INFO - Loading dataset from source-dataset/trial.csv
+2025-05-09 16:47:57,523 - __main__ - INFO - Loaded 20 records
+2025-05-09 16:47:57,523 - __main__ - INFO - Removing extra quotation marks
+2025-05-09 16:47:57,523 - __main__ - INFO - Saving preprocessed dataset to source-dataset/cleaned_trial.csv
+2025-05-09 16:47:57,527 - __main__ - INFO - Successfully saved 20 records
+2025-05-09 16:47:57,527 - __main__ - INFO - Preprocessing completed successfully
+2025-05-09 16:50:44,820 - __main__ - INFO - Loading dataset from source-dataset/trial.csv
+2025-05-09 16:50:44,822 - __main__ - INFO - Loaded 20 records
+2025-05-09 16:50:44,822 - __main__ - INFO - Removing extra quotation marks
+2025-05-09 16:50:44,822 - __main__ - INFO - Saving preprocessed dataset to source-dataset/cleaned_trial.csv
+2025-05-09 16:50:44,823 - __main__ - INFO - Successfully saved 20 records
+2025-05-09 16:50:44,823 - __main__ - INFO - Preprocessing completed successfully
+2025-05-09 16:56:29,254 - __main__ - INFO - Loading dataset from source-dataset/trial.csv
+2025-05-09 16:56:29,256 - __main__ - INFO - Loaded 20 records
+2025-05-09 16:56:29,256 - __main__ - INFO - Removing extra quotation marks
+2025-05-09 16:56:29,257 - __main__ - INFO - Saving preprocessed dataset to source-dataset/cleaned_trial_fixed.csv
+2025-05-09 16:56:29,257 - __main__ - INFO - Successfully saved 20 records
+2025-05-09 16:56:29,258 - __main__ - INFO - Preprocessing completed successfully
+2025-05-09 17:01:18,483 - __main__ - INFO - Loading dataset from source-dataset/trial.csv
+2025-05-09 17:01:18,485 - __main__ - INFO - Loaded 20 records
+2025-05-09 17:01:18,485 - __main__ - INFO - Cleaning text data - removing quotation marks and HTML entities
+2025-05-09 17:01:18,486 - __main__ - INFO - Saving preprocessed dataset to source-dataset/cleaned_test_output.csv
+2025-05-09 17:01:18,486 - __main__ - INFO - Successfully saved 20 records
+2025-05-09 17:01:18,486 - __main__ - INFO - Preprocessing completed successfully
+2025-05-10 01:59:47,205 - __main__ - INFO - Loading dataset from source-dataset/cleaned_aae_dataset.csv
+2025-05-10 01:59:47,217 - __main__ - INFO - Loaded 11680 records
+2025-05-10 01:59:47,217 - __main__ - INFO - Cleaning text data - removing quotation marks and HTML entities
+2025-05-10 01:59:47,251 - __main__ - INFO - Saving preprocessed dataset to source-dataset/final_cleaned_dataset.csv
+2025-05-10 01:59:47,269 - __main__ - INFO - Successfully saved 11680 records
+2025-05-10 01:59:47,269 - __main__ - INFO - Preprocessing completed successfully

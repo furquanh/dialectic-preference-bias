@@ -37,23 +37,47 @@ See the `/bias_analysis_scripts/results/visualizations` directory for detailed v
 
 ## Running the Analysis
 
+### Activate the virtual environment
+`source dialectic/bin/activate`
+
+### Make sure you have required dependencies
+`pip install -r requirements.txt`
+
 To run the bias analysis on your own data:
 
 ```
-# Example command to analyze a specific model's results
+# Step 1: Translate AAE to SAE
+python create_dataset_scripts/translate_aae_to_sae.py \
+  --input source-dataset/cleaned_aae_dataset.csv \
+  --output output_datasets/aae_to_sae_translations.csv
+
+# Step 2: Translate SAE back to AAE
+python create_dataset_scripts/translate_sae_to_aae.py \
+  --input output_datasets/aae_to_sae_translations.csv \
+  --output output_datasets/sae_to_aae_translations.csv
+
+# Step 3: Get sentiments for each dialect version using each model
+# (Repeat for each model: gpt4o_mini, claude_haiku, phi3_medium)
+python obtain_sentiment_scripts/get_aae_sentiment.py \
+  --input source-dataset/cleaned_aae_dataset.csv \
+  --output output_datasets/MODEL_NAME_AAE_sentiment.csv \
+  --model MODEL_NAME
+
+# Step 4: Analyze bias for each model
 python bias_analysis_scripts/analyze_dialectic_bias.py \
-  --aae output_datasets/MODEL_AAE_sentiment.csv \
-  --sae output_datasets/MODEL_SAE_sentiment.csv \
-  --aae-from-sae output_datasets/MODEL_AAE_from_SAE_sentiment.csv \
-  --output bias_analysis_scripts/results/MODEL_results.json \
+  --aae output_datasets/MODEL_NAME_AAE_sentiment.csv \
+  --sae output_datasets/MODEL_NAME_SAE_sentiment.csv \
+  --aae-from-sae output_datasets/MODEL_NAME_AAE_from_SAE_sentiment.csv \
+  --output bias_analysis_scripts/results/MODEL_NAME_results.json \
   --model MODEL_NAME \
   --visualize
 
-# To compare results across models
+# Step 5: Compare models and update README
 python bias_analysis_scripts/compare_models.py \
   --results-dir bias_analysis_scripts/results \
   --output bias_analysis_scripts/results/comparative_analysis \
-  --visualize
+  --visualize \
+  --update-readme
 ```
 
 ## Conclusion
