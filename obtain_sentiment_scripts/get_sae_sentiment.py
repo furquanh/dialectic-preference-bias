@@ -1,5 +1,5 @@
 """
-Script to obtain sentiment classifications for SAE translations using GPT-4.1 Batch API.
+Script to obtain sentiment classifications for SAE translated tweets.
 """
 
 import os
@@ -16,20 +16,20 @@ from typing import List, Dict, Any, Optional
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from models import GPT41BatchInterface, ClaudeHaikuInterface, Phi3MediumInterface
+from models import GPT41BatchInterface, ClaudeHaikuInterface,  Phi4VllmInterface
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[
-                        logging.FileHandler("sae_sentiment_analysis.log"),
+                        logging.FileHandler("aae_sentiment_analysis.log"),
                         logging.StreamHandler()
                     ])
 logger = logging.getLogger(__name__)
 
 def load_dataset(filepath: str, num_samples: Optional[int] = None) -> pd.DataFrame:
     """
-    Load the SAE dataset from a CSV file.
+    Load the AAE dataset from a CSV file.
     
     Args:
         filepath: Path to the CSV file
@@ -74,12 +74,15 @@ def get_model_interface(model_name: str, api_key: Optional[str] = None):
     elif model_name == 'phi3_medium':
         from models import Phi3MediumInterface
         return Phi3MediumInterface()
+    elif model_name == 'phi4_vllm':
+        from models import Phi4VllmInterface
+        return Phi4VllmInterface()
     else:
         raise ValueError(f"Unsupported model: {model_name}")
 
 def analyze_sentiment_batch(texts: List[str], model_interface) -> List[Dict[str, Any]]:
     """
-    Analyze sentiment for a batch of texts using the GPT-4.1 Batch API.
+    Analyze sentiment for a batch of texts.
     
     Args:
         texts: List of texts to analyze
@@ -88,36 +91,26 @@ def analyze_sentiment_batch(texts: List[str], model_interface) -> List[Dict[str,
     Returns:
         List of sentiment dictionaries
     """
-    # If using GPT-4.1 Batch, use the specialized batch method
-    if isinstance(model_interface, GPT41BatchInterface):
-        sentiments = model_interface.batch_get_sentiment(texts)
-        
-        # Add the text to each sentiment dictionary
-        for i, sentiment in enumerate(sentiments):
-            sentiment['text'] = texts[i]
-        
-        return sentiments
-    else:
-        # For other models, use their batch method
-        sentiments = model_interface.batch_get_sentiment(texts)
-        
-        # Add the text to each sentiment dictionary
-        for i, sentiment in enumerate(sentiments):
-            sentiment['text'] = texts[i]
-        
-        return sentiments
+    # Use the batch_get_sentiment method for all models that support it
+    sentiments = model_interface.batch_get_sentiment(texts)
+    
+    # Add the text to each sentiment dictionary
+    for i, sentiment in enumerate(sentiments):
+        sentiment['text'] = texts[i]
+    
+    return sentiments
 
 def main():
-    parser = argparse.ArgumentParser(description="Analyze sentiment for SAE translations using GPT-4.1 Batch API")
-    parser.add_argument("--input", "-i", required=True, help="Path to input CSV file with SAE translations")
+    parser = argparse.ArgumentParser(description="Analyze sentiment for AAE tweets using GPT-4.1 Batch API")
+    parser.add_argument("--input", "-i", required=True, help="Path to input CSV file with AAE tweets")
     parser.add_argument("--output", "-o", required=True, help="Path to output CSV file for sentiment results")
     parser.add_argument("--model", "-m", required=True, 
-                        choices=['gpt4o_mini', 'gpt41_batch', 'claude_haiku', 'phi3_medium'], 
+                        choices=['gpt4o_mini', 'gpt41_batch', 'claude_haiku', 'phi3_medium', 'phi4_vllm'], 
                         help="Model to use for sentiment analysis")
     parser.add_argument("--samples", "-s", type=int, default=None, help="Number of samples to process (default: all)")
     parser.add_argument("--batch-size", "-b", type=int, default=100, help="Batch size for processing (default: 100)")
     parser.add_argument("--api-key", "-k", help="API key for the selected model (if applicable)")
-    parser.add_argument("--text-column", "-t", default="sae_text", help="Column name containing the SAE text to analyze")
+    parser.add_argument("--text-column", "-t", default="text", help="Column name containing the text to analyze")
     args = parser.parse_args()
     
     # Load the dataset
@@ -158,24 +151,19 @@ def main():
             failed_sentiments = [
                 {
                     'text': text,
-                    'sentiment': 'ERROR',
-                    'score': 0,
-                    'raw_response': f"Batch processing error: {str(e)}"
+                    'sentiment': 'ERROR'
                 } for text in batch_texts
             ]
             all_sentiments.extend(failed_sentiments)
         
-        # Clean up GPU memory if using Phi-3
-        if args.model == 'phi3_medium' and torch.cuda.is_available():
+        # Clean up GPU memory if using Phi models
+        if (args.model == 'phi3_medium' or args.model == 'phi4_vllm') and torch.cuda.is_available():
             torch.cuda.empty_cache()
     
     # Create the output DataFrame
     output_df = pd.DataFrame({
-        'original_text': df['original_text'].tolist() if 'original_text' in df.columns else [""] * len(df),
         'sae_text': [s['text'] for s in all_sentiments],
-        'sentiment': [s['sentiment'] for s in all_sentiments],
-        'score': [s['score'] for s in all_sentiments],
-        'raw_response': [s.get('raw_response', '') for s in all_sentiments]
+        'sentiment': [s['sentiment'] for s in all_sentiments]
     })
     
     # Save the output

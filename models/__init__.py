@@ -8,22 +8,25 @@ from .model_interface import (
     APIModelInterface,
     sentiment_to_score
 )
-# from .gpt4o_mini import GPT4oMiniInterface, call_gpt4o_mini
-# from .claude_haiku import ClaudeHaikuInterface, call_claude_haiku
-# from .phi3_medium import Phi3MediumInterface, call_phi3_medium
+from .gpt4o_mini import GPT4oMiniInterface, call_gpt4o_mini
+from .claude_haiku import ClaudeHaikuInterface, call_claude_haiku
 from .gpt41_batch import GPT41BatchInterface, call_gpt41
+from .phi4_vllm import Phi4VllmInterface, call_phi4_vllm
+from .claude_batch import ClaudeBatchInterface, call_claude
 
 __all__ = [
     'ModelInterface',
     'TransformersModelInterface',
     'APIModelInterface',
     'sentiment_to_score',
-    # 'GPT4oMiniInterface',
-    # 'call_gpt4o_mini',
-    # 'ClaudeHaikuInterface',
-    # 'call_claude_haiku',
-    # 'Phi3MediumInterface',
-    # 'call_phi3_medium',
+    'GPT4oMiniInterface',
+    'call_gpt4o_mini',
+    'ClaudeHaikuInterface',
+    'call_claude_haiku',
     'GPT41BatchInterface',
-    'call_gpt41'
+    'call_gpt41',
+    'Phi4VllmInterface',
+    'call_phi4_vllm',
+    'ClaudeBatchInterface',
+    'call_claude'
 ]

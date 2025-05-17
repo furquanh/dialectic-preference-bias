@@ -69,6 +69,7 @@ POLLING_ACTIVE = True
 def load_aae_dataset(filepath: str, num_samples: Optional[int] = None) -> pd.DataFrame:
     """
     Load the AAE dataset from a CSV file.
+    Opens the file as text, extracts headers from first line, then treats each line as a whole.
     
     Args:
         filepath: Path to the CSV file
@@ -78,12 +79,33 @@ def load_aae_dataset(filepath: str, num_samples: Optional[int] = None) -> pd.Dat
         DataFrame containing the dataset
     """
     try:
-        df = pd.read_csv(filepath)
-        logger.info(f"Loaded dataset with {len(df)} records")
+        # Check if the file exists
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f"File not found: {filepath}")
         
-        if num_samples:
-            df = df.sample(num_samples, random_state=42) if len(df) > num_samples else df
-            logger.info(f"Sampled {len(df)} records")
+        # Open as text file
+        with open(filepath, 'r', encoding='utf-8') as f:
+            # Get headers from first line
+            header_line = f.readline().strip()
+            headers = [h.strip() for h in header_line.split(',')]
+            
+            # Read remaining lines without splitting on commas
+            lines = [line.strip() for line in f if line.strip()]
+        
+        # Sample if requested
+        if num_samples and num_samples < len(lines):
+            import random
+            random.seed(42)
+            lines = random.sample(lines, num_samples)
+        
+        # Create DataFrame with text column (using first header as column name)
+        column_name = 'text'  # Use standard name for compatibility with rest of code
+        
+        df = pd.DataFrame({
+            column_name: lines
+        })
+        
+        logger.info(f"Loaded dataset as text: {len(df)} records")
             
         return df
     except Exception as e:
@@ -619,7 +641,7 @@ def main():
     parser.add_argument("--output", "-o",  required=True, help="Path to output CSV file for SAE translations")
     parser.add_argument("--mode", "-m", choices=["submit", "poll", "retrieve", "continuous-poll"], required=True, 
                         help="Operation mode: submit a new batch, poll existing batch, continuously poll batch, or retrieve completed results")
-    parser.add_argument("--batch-id", "-b", help="Batch ID for poll or retrieve modes")
+    parser.add_argument("--batch_id", "-b", help="Batch ID for poll or retrieve modes")
     parser.add_argument("--samples", "-s", type=int, default=None, help="Number of samples to process (default: all)")
     parser.add_argument("--api-key", "-k", help="OpenAI API key (if not provided, will use environment variable)")
     parser.add_argument("--enable-notifications", "-n", action="store_true", 

@@ -12,3 +12,7 @@ backoff==2.2.1
 dotenv==0.9.9
 twilio==9.6.0
 datasets==3.6.0
+vllm==0.8.5
+requests>=2.31.0
+scikit-learn
+matplotlib

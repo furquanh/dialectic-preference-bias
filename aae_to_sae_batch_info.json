@@ -1,1 +1,1 @@
-{"batch_id": "batch_681ef1bc893c8190bdfb43710004003d", "num_texts": 4947, "file_size_mb": 3.2911882400512695, "status": "in_progress", "progress_percent": 10.268849807964422}
+{"batch_id": "batch_6826e69b13d08190ae2f723601d69aa3", "num_texts": 6495, "file_size_mb": 4.323122024536133, "status": "completed", "progress_percent": 100.0, "huggingface_url": "https://huggingface.co/datasets/furquan/aae-sae-translation-aae_to_sae_next_5000_results-20250516_033415", "results_saved": true}

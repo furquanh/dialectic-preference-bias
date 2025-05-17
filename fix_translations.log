@@ -1,0 +1,12 @@
+2025-05-13 15:39:46,268 - __main__ - INFO - Reading file: output_datasets/aae_to_sae_total.csv
+2025-05-13 15:39:46,268 - __main__ - ERROR - Error fixing translations: 
+2025-05-13 15:47:17,645 - __main__ - INFO - Reading file: output_datasets/aae_to_sae_initial_5000_result.csv
+2025-05-13 15:47:17,654 - __main__ - INFO -   - Row count from output_datasets/aae_to_sae_initial_5000_result.csv: 4947
+2025-05-13 15:47:17,654 - __main__ - INFO - Reading file: output_datasets/aae_to_sae_next_5000_result.csv
+2025-05-13 15:47:17,666 - __main__ - INFO -   - Row count from output_datasets/aae_to_sae_next_5000_result.csv: 6733
+2025-05-13 15:47:17,666 - __main__ - INFO - Combined row count: 11680
+2025-05-13 15:47:17,669 - __main__ - WARNING - Found 14 duplicate entries. Removing duplicates.
+2025-05-13 15:47:17,671 - __main__ - INFO - Final row count after removing duplicates: 11666
+2025-05-13 15:47:17,709 - __main__ - INFO - Combined and fixed data written to: output_datasets/aae_to_sae_total.csv
+2025-05-13 15:47:17,735 - __main__ - INFO - Verification row count: 11666
+2025-05-13 15:47:17,736 - __main__ - INFO - Successfully combined and fixed translations in: output_datasets/aae_to_sae_total.csv
