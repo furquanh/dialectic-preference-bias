@@ -16,3 +16,4 @@ vllm==0.8.5
 requests>=2.31.0
 scikit-learn
 matplotlib
+seaborn

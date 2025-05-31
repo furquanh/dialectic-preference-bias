@@ -1,0 +1,127 @@
+2025-05-31 13:49:22,423 - __main__ - INFO - Loaded AAE dataset with 11331 records
+2025-05-31 13:49:22,440 - __main__ - INFO - Loaded SAE dataset with 11331 records
+2025-05-31 13:49:22,462 - __main__ - INFO - Loaded AAE-from-SAE dataset with 11331 records
+2025-05-31 13:49:22,462 - __main__ - ERROR - Error merging datasets: "['text'] not in index"
+2025-05-31 13:49:22,463 - __main__ - ERROR - Error during bias analysis: "['text'] not in index"
+2025-05-31 13:50:50,572 - __main__ - INFO - Loaded AAE dataset with 11331 records
+2025-05-31 13:50:50,591 - __main__ - INFO - Loaded SAE dataset with 11331 records
+2025-05-31 13:50:50,614 - __main__ - INFO - Loaded AAE-from-SAE dataset with 11331 records
+2025-05-31 13:50:50,617 - __main__ - ERROR - Error merging datasets: "['score'] not in index"
+2025-05-31 13:50:50,617 - __main__ - ERROR - Error during bias analysis: "['score'] not in index"
+2025-05-31 13:51:13,213 - __main__ - INFO - Loaded AAE dataset with 11331 records
+2025-05-31 13:51:13,232 - __main__ - INFO - Loaded SAE dataset with 11331 records
+2025-05-31 13:51:13,255 - __main__ - INFO - Loaded AAE-from-SAE dataset with 11331 records
+2025-05-31 13:51:13,259 - __main__ - INFO - Created merged dataset with 11331 records
+2025-05-31 13:51:13,260 - __main__ - INFO - DGI(AAE, SAE) = 0.8164
+2025-05-31 13:51:13,261 - __main__ - INFO - DGI(AAE, AAE-from-SAE) = 0.7865
+2025-05-31 13:51:13,262 - __main__ - INFO - DGI(SAE, AAE-from-SAE) = 0.8399
+2025-05-31 13:51:13,264 - __main__ - INFO - DGI(AAE, SAE, AAE-from-SAE) = 0.7298
+2025-05-31 13:51:13,266 - __main__ - INFO - DGI for positive sentiment (n=3146):
+2025-05-31 13:51:13,267 - __main__ - INFO -   DGI(AAE, SAE) = 0.8322
+2025-05-31 13:51:13,267 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.8706
+2025-05-31 13:51:13,267 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7934
+2025-05-31 13:51:13,270 - __main__ - INFO - DGI for negative sentiment (n=6097):
+2025-05-31 13:51:13,270 - __main__ - INFO -   DGI(AAE, SAE) = 0.8529
+2025-05-31 13:51:13,270 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.7927
+2025-05-31 13:51:13,270 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7617
+2025-05-31 13:51:13,272 - __main__ - INFO - DGI for neutral sentiment (n=2088):
+2025-05-31 13:51:13,272 - __main__ - INFO -   DGI(AAE, SAE) = 0.6863
+2025-05-31 13:51:13,272 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.6418
+2025-05-31 13:51:13,272 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.5407
+2025-05-31 13:51:13,274 - __main__ - INFO - Found 2080 sentiment shifts (18.36% of samples)
+2025-05-31 13:51:13,275 - __main__ - INFO -   positive_to_negative: 179 instances (1.58% of total)
+2025-05-31 13:51:13,277 - __main__ - INFO -   positive_to_neutral: 349 instances (3.08% of total)
+2025-05-31 13:51:13,279 - __main__ - INFO -   negative_to_positive: 290 instances (2.56% of total)
+2025-05-31 13:51:13,280 - __main__ - INFO -   negative_to_neutral: 607 instances (5.36% of total)
+2025-05-31 13:51:13,282 - __main__ - INFO -   neutral_to_positive: 323 instances (2.85% of total)
+2025-05-31 13:51:13,283 - __main__ - INFO -   neutral_to_negative: 332 instances (2.93% of total)
+2025-05-31 13:51:13,283 - __main__ - INFO - Overall bias towards more positive sentiment in SAE: +111 instances
+2025-05-31 13:51:13,285 - __main__ - ERROR - Error during bias analysis: [Errno 21] Is a directory: 'bias_analysis_scripts/results'
+2025-05-31 13:51:47,098 - __main__ - INFO - Loaded AAE dataset with 11331 records
+2025-05-31 13:51:47,116 - __main__ - INFO - Loaded SAE dataset with 11331 records
+2025-05-31 13:51:47,137 - __main__ - INFO - Loaded AAE-from-SAE dataset with 11331 records
+2025-05-31 13:51:47,140 - __main__ - INFO - Created merged dataset with 11331 records
+2025-05-31 13:51:47,142 - __main__ - INFO - DGI(AAE, SAE) = 0.8164
+2025-05-31 13:51:47,143 - __main__ - INFO - DGI(AAE, AAE-from-SAE) = 0.7865
+2025-05-31 13:51:47,143 - __main__ - INFO - DGI(SAE, AAE-from-SAE) = 0.8399
+2025-05-31 13:51:47,145 - __main__ - INFO - DGI(AAE, SAE, AAE-from-SAE) = 0.7298
+2025-05-31 13:51:47,147 - __main__ - INFO - DGI for positive sentiment (n=3146):
+2025-05-31 13:51:47,148 - __main__ - INFO -   DGI(AAE, SAE) = 0.8322
+2025-05-31 13:51:47,148 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.8706
+2025-05-31 13:51:47,148 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7934
+2025-05-31 13:51:47,151 - __main__ - INFO - DGI for negative sentiment (n=6097):
+2025-05-31 13:51:47,151 - __main__ - INFO -   DGI(AAE, SAE) = 0.8529
+2025-05-31 13:51:47,151 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.7927
+2025-05-31 13:51:47,151 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7617
+2025-05-31 13:51:47,153 - __main__ - INFO - DGI for neutral sentiment (n=2088):
+2025-05-31 13:51:47,153 - __main__ - INFO -   DGI(AAE, SAE) = 0.6863
+2025-05-31 13:51:47,153 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.6418
+2025-05-31 13:51:47,153 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.5407
+2025-05-31 13:51:47,154 - __main__ - INFO - Found 2080 sentiment shifts (18.36% of samples)
+2025-05-31 13:51:47,156 - __main__ - INFO -   positive_to_negative: 179 instances (1.58% of total)
+2025-05-31 13:51:47,157 - __main__ - INFO -   positive_to_neutral: 349 instances (3.08% of total)
+2025-05-31 13:51:47,159 - __main__ - INFO -   negative_to_positive: 290 instances (2.56% of total)
+2025-05-31 13:51:47,160 - __main__ - INFO -   negative_to_neutral: 607 instances (5.36% of total)
+2025-05-31 13:51:47,162 - __main__ - INFO -   neutral_to_positive: 323 instances (2.85% of total)
+2025-05-31 13:51:47,163 - __main__ - INFO -   neutral_to_negative: 332 instances (2.93% of total)
+2025-05-31 13:51:47,164 - __main__ - INFO - Overall bias towards more positive sentiment in SAE: +111 instances
+2025-05-31 13:51:47,166 - __main__ - ERROR - Error during bias analysis: Object of type int64 is not JSON serializable
+2025-05-31 13:52:11,640 - __main__ - INFO - Loaded AAE dataset with 11331 records
+2025-05-31 13:52:11,658 - __main__ - INFO - Loaded SAE dataset with 11331 records
+2025-05-31 13:52:11,679 - __main__ - INFO - Loaded AAE-from-SAE dataset with 11331 records
+2025-05-31 13:52:11,683 - __main__ - INFO - Created merged dataset with 11331 records
+2025-05-31 13:52:11,684 - __main__ - INFO - DGI(AAE, SAE) = 0.8164
+2025-05-31 13:52:11,685 - __main__ - INFO - DGI(AAE, AAE-from-SAE) = 0.7865
+2025-05-31 13:52:11,686 - __main__ - INFO - DGI(SAE, AAE-from-SAE) = 0.8399
+2025-05-31 13:52:11,687 - __main__ - INFO - DGI(AAE, SAE, AAE-from-SAE) = 0.7298
+2025-05-31 13:52:11,690 - __main__ - INFO - DGI for positive sentiment (n=3146):
+2025-05-31 13:52:11,690 - __main__ - INFO -   DGI(AAE, SAE) = 0.8322
+2025-05-31 13:52:11,690 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.8706
+2025-05-31 13:52:11,690 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7934
+2025-05-31 13:52:11,693 - __main__ - INFO - DGI for negative sentiment (n=6097):
+2025-05-31 13:52:11,693 - __main__ - INFO -   DGI(AAE, SAE) = 0.8529
+2025-05-31 13:52:11,693 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.7927
+2025-05-31 13:52:11,693 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7617
+2025-05-31 13:52:11,695 - __main__ - INFO - DGI for neutral sentiment (n=2088):
+2025-05-31 13:52:11,695 - __main__ - INFO -   DGI(AAE, SAE) = 0.6863
+2025-05-31 13:52:11,695 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.6418
+2025-05-31 13:52:11,695 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.5407
+2025-05-31 13:52:11,696 - __main__ - INFO - Found 2080 sentiment shifts (18.36% of samples)
+2025-05-31 13:52:11,698 - __main__ - INFO -   positive_to_negative: 179 instances (1.58% of total)
+2025-05-31 13:52:11,699 - __main__ - INFO -   positive_to_neutral: 349 instances (3.08% of total)
+2025-05-31 13:52:11,701 - __main__ - INFO -   negative_to_positive: 290 instances (2.56% of total)
+2025-05-31 13:52:11,703 - __main__ - INFO -   negative_to_neutral: 607 instances (5.36% of total)
+2025-05-31 13:52:11,704 - __main__ - INFO -   neutral_to_positive: 323 instances (2.85% of total)
+2025-05-31 13:52:11,706 - __main__ - INFO -   neutral_to_negative: 332 instances (2.93% of total)
+2025-05-31 13:52:11,706 - __main__ - INFO - Overall bias towards more positive sentiment in SAE: +111 instances
+2025-05-31 13:52:11,708 - __main__ - ERROR - Error during bias analysis: Object of type int64 is not JSON serializable
+2025-05-31 14:03:17,608 - __main__ - INFO - Loaded AAE dataset with 11331 records
+2025-05-31 14:03:17,625 - __main__ - INFO - Loaded SAE dataset with 11331 records
+2025-05-31 14:03:17,646 - __main__ - INFO - Loaded AAE-from-SAE dataset with 11331 records
+2025-05-31 14:03:17,650 - __main__ - INFO - Created merged dataset with 11331 records
+2025-05-31 14:03:17,652 - __main__ - INFO - DGI(AAE, SAE) = 0.8164
+2025-05-31 14:03:17,653 - __main__ - INFO - DGI(AAE, AAE-from-SAE) = 0.7865
+2025-05-31 14:03:17,654 - __main__ - INFO - DGI(SAE, AAE-from-SAE) = 0.8399
+2025-05-31 14:03:17,655 - __main__ - INFO - DGI(AAE, SAE, AAE-from-SAE) = 0.7298
+2025-05-31 14:03:17,658 - __main__ - INFO - DGI for positive sentiment (n=3146):
+2025-05-31 14:03:17,658 - __main__ - INFO -   DGI(AAE, SAE) = 0.8322
+2025-05-31 14:03:17,658 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.8706
+2025-05-31 14:03:17,658 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7934
+2025-05-31 14:03:17,661 - __main__ - INFO - DGI for negative sentiment (n=6097):
+2025-05-31 14:03:17,661 - __main__ - INFO -   DGI(AAE, SAE) = 0.8529
+2025-05-31 14:03:17,661 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.7927
+2025-05-31 14:03:17,661 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.7617
+2025-05-31 14:03:17,663 - __main__ - INFO - DGI for neutral sentiment (n=2088):
+2025-05-31 14:03:17,663 - __main__ - INFO -   DGI(AAE, SAE) = 0.6863
+2025-05-31 14:03:17,663 - __main__ - INFO -   DGI(AAE, AAE-from-SAE) = 0.6418
+2025-05-31 14:03:17,663 - __main__ - INFO -   DGI(AAE, SAE, AAE-from-SAE) = 0.5407
+2025-05-31 14:03:17,664 - __main__ - INFO - Found 2080 sentiment shifts (18.36% of samples)
+2025-05-31 14:03:17,666 - __main__ - INFO -   positive_to_negative: 179 instances (1.58% of total)
+2025-05-31 14:03:17,667 - __main__ - INFO -   positive_to_neutral: 349 instances (3.08% of total)
+2025-05-31 14:03:17,669 - __main__ - INFO -   negative_to_positive: 290 instances (2.56% of total)
+2025-05-31 14:03:17,670 - __main__ - INFO -   negative_to_neutral: 607 instances (5.36% of total)
+2025-05-31 14:03:17,672 - __main__ - INFO -   neutral_to_positive: 323 instances (2.85% of total)
+2025-05-31 14:03:17,673 - __main__ - INFO -   neutral_to_negative: 332 instances (2.93% of total)
+2025-05-31 14:03:17,673 - __main__ - INFO - Overall bias towards more positive sentiment in SAE: +111 instances
+2025-05-31 14:03:17,676 - __main__ - INFO - Results saved to bias_analysis_scripts/results/phi4_dgi_results.json
+2025-05-31 14:03:20,152 - __main__ - INFO - Visualizations saved to bias_analysis_scripts/results/visualizations

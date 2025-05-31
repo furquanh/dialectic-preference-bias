@@ -63,14 +63,14 @@ def merge_datasets(aae_df: pd.DataFrame, sae_df: pd.DataFrame, aae_from_sae_df: 
     """
     try:
         # Extract relevant columns
-        aae_subset = aae_df[['text', 'sentiment', 'score']].rename(
-            columns={'text': 'aae_text', 'sentiment': 'aae_sentiment', 'score': 'aae_score'})
+        aae_subset = aae_df[['aae_text', 'sentiment']].rename(
+            columns={'text': 'aae_text', 'sentiment': 'aae_sentiment'})
         
-        sae_subset = sae_df[['sae_text', 'sentiment', 'score']].rename(
+        sae_subset = sae_df[['sae_text', 'sentiment']].rename(
             columns={'sentiment': 'sae_sentiment', 'score': 'sae_score'})
         
-        aae_from_sae_subset = aae_from_sae_df[['aae_from_sae_text', 'sentiment', 'score']].rename(
-            columns={'sentiment': 'aae_from_sae_sentiment', 'score': 'aae_from_sae_score'})
+        aae_from_sae_subset = aae_from_sae_df[['aae_from_sae_text', 'sentiment']].rename(
+            columns={'sentiment': 'aae_from_sae_sentiment'})
         
         # Merge datasets (assuming they have the same order)
         # For a more robust solution, you would need a common key to join on
@@ -357,11 +357,21 @@ def main():
         }
         
         # Add sentiment distribution statistics
+        raw_aae = merged_df['aae_sentiment'].value_counts().to_dict()
+        aae_counts = { label: int(count) for label, count in raw_aae.items() }
+
+        raw_sae = merged_df['sae_sentiment'].value_counts().to_dict()
+        sae_counts = { label: int(count) for label, count in raw_sae.items() }
+
+        raw_aae_from_sae = merged_df['aae_from_sae_sentiment'].value_counts().to_dict()
+        aae_from_sae_counts = { label: int(count) for label, count in raw_aae_from_sae.items() }
+
         results['sentiment_distribution'] = {
-            'aae': dict(merged_df['aae_sentiment'].value_counts()),
-            'sae': dict(merged_df['sae_sentiment'].value_counts()),
-            'aae_from_sae': dict(merged_df['aae_from_sae_sentiment'].value_counts())
+            'aae': aae_counts,
+            'sae': sae_counts,
+            'aae_from_sae': aae_from_sae_counts
         }
+
         
         # Save results to JSON
         output_dir = os.path.dirname(args.output)
